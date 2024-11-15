@@ -5,7 +5,7 @@ import os
 class S3Uploader:
     def __init__(self):
         self.bucket_name = os.getenv('S3_BUCKET_NAME')  # Set your bucket name
-        self.s3 = boto3.client('s3')
+        self.s3 = boto3.client('s3', verify=False)
 
     def upload_file(self, local_file, s3_file):
         try:
