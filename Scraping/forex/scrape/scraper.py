@@ -8,7 +8,7 @@ class ForexScraper:
     def __init__(self):
         ##
         # STEP 1:
-        # Start just with base URL as the very first
+        # 	Initialize necessary instance variables
         #
         """CODE BLOCK STARTS"""
 
@@ -25,6 +25,8 @@ class ForexScraper:
             """CODE BLOCK STARTS"""
 
 
+
+            # print('Successfully fetched the landing page!')
             """CODE BLOCK ENDS"""
 
             ##
@@ -71,8 +73,15 @@ class ForexScraper:
         #       b. Set the current month equal to the extracted new month
         #
         """CODE BLOCK STARTS"""
+        new_month = date[:7]  # Extract 'YYYY-MM' from the date
 
-
+        if self.current_month is None:
+            self.current_month = new_month  # First month initialization
+        elif self.current_month != new_month:
+            # If the month has changed, close and upload the previous month's file
+            print(f"Transitioning to new month: {new_month}, closing previous month: {self.current_month}")
+            self.close_and_upload_csv_handler()
+            self.current_month = new_month  # Update the current month to the new month
         """CODE BLOCK ENDS"""
 
     def close_and_upload_csv_handler(self):
@@ -81,25 +90,31 @@ class ForexScraper:
             self.csv_handler.close(self.s3_uploader)
             self.csv_handler = None  # Reset the handler after uploading
 
-    def fetch_rates_page(self, full_url, date):
-        try:
+    # def fetch_rates_page(self, full_url, date):
+    #     try:
             ##
             # STEP 5: (Similar to step 1)
             #   1. Fetch rates page by a sending a get request
             #   2. Make a call to extract_data method for data extraction
             #
+            # """CODE BLOCK STARTS"""
 
-        except requests.exceptions.RequestException as e:
-            print(f'Error fetching the View Rates page at {full_url}: {e}')
 
-    def extract_data(self, html_content, date):
-        
-        try:
+			# """CODE BLOCK ENDS"""
+
+        # except requests.exceptions.RequestException as e:
+        #     print(f'Error fetching the View Rates page at {full_url}: {e}')
+
+    # def extract_data(self, html_content, date):
+    #     try:
             ##
             # STEP 6:
             #   1. Locate and find the table tag
             #   2. Extract data from the table and write to a csv file using the csv handler
             #
+			# """CODE BLOCK STARTS"""
 
-        except Exception as e:
-            print(f'Error extracting data: {e}')
+
+			# """CODE BLOCK ENDS"""
+        # except Exception as e:
+        #     print(f'Error extracting data: {e}')
