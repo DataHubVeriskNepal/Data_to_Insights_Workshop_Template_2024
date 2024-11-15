@@ -64,13 +64,14 @@ Follow these steps to install and set up the project locally:
     ```
 
 2. **Set up virtual environment**:
-    - If `venv` is not installed:
+    - If `venv` is not installed (Not necessary with recent python versions):
       ```bash
       sudo apt install python3-venv
       ```
     - Create and activate the virtual environment:
       ```bash
-      python3 -m venv venv
+      cd Scraping/forex
+      python -m venv venv (Or python3 -m venv venv)
       source venv/bin/activate   # Linux/Mac
       venv\Scripts\activate      # Windows
       ```
