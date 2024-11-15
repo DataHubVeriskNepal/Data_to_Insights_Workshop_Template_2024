@@ -8,7 +8,7 @@ class ForexScraper:
     def __init__(self):
         ##
         # STEP 1:
-        # Start just with base URL as the very first
+        # Start just with base URL at the very first
         #
         """CODE BLOCK STARTS"""
 
@@ -93,7 +93,6 @@ class ForexScraper:
             print(f'Error fetching the View Rates page at {full_url}: {e}')
 
     def extract_data(self, html_content, date):
-        
         try:
             ##
             # STEP 6:
