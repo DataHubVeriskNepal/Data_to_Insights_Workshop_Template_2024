@@ -112,6 +112,15 @@ class ForexScraper:
             #   1. Locate and find the table tag
             #   2. Extract data from the table and write to a csv file using the csv handler
             #
+            # Side Note: 
+			# 	Snippet for data extraction from each table row: 
+			# 		row_data = [col.text.strip() for i, col in enumerate(columns) if i != 1]
+			#				OR
+            #		row_data = []
+			#		for i, col in enumerate(columns):
+			#		 	if i != 1:
+			#		 		row_data.append(col.text.strip())
+            #
 			# """CODE BLOCK STARTS"""
 
 
