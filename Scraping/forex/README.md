@@ -77,6 +77,7 @@ Follow these steps to install and set up the project locally:
 
 3. **Install required dependencies**:
     ```bash
+    cd Scraping/forex
     pip install -r requirements.txt
     ```
 
@@ -106,6 +107,7 @@ Once the setup and development is complete, you can run the scraper as follows:
 
 1. **Run the script**:
     ```bash
+    cd scrape
     python main.py
     ```
 
