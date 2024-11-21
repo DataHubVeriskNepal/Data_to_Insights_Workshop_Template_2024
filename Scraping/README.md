@@ -1,6 +1,6 @@
-# Forex Data Scraper
+# Forex Data and Gold Silver Price Scraper
 
-This project is a Forex data scraper that extracts currency exchange rates from a specified website, organizes the data into monthly CSV files, and uploads these files to an AWS S3 bucket. The scraper ensures that each month's data is processed and uploaded separately, making it an efficient tool for collecting and storing forex rates and later to be used for visualization and analytics.
+This project is a Forex data and gold-silver price scraper designed to extract currency exchange rates and precious metal prices from specified websites. It organizes the data into monthly CSV files and uploads them to an AWS S3 bucket. By processing and uploading each month's data separately, the scraper provides an efficient solution for collecting, organizing, and storing data for visualization and analytics.
 
 ## Table of Contents
 
@@ -15,23 +15,27 @@ This project is a Forex data scraper that extracts currency exchange rates from 
 
 ## Project Overview
 
-The Forex Data Scraper performs the following tasks:
+The Scraper performs the following tasks:
 
-1. Scrapes currency exchange rates from a specified website.
+1. Scrapes currency exchange rates and gold silver prices from specified websites.
 2. Parses the data and organizes it into CSV files by month.
 3. Uploads the CSV files to an AWS S3 bucket, one for each month after the data for that month is processed.
 
 ## Project Structure
 
 ```plaintext
-forex/
-├── scrape/
-│   ├── main.py
-│   ├── scraper.py
+Scraping/
+├── .main.py
+├── forex_scraper.py
+├── gold_silver_scraper.py
+├── utils/
 │   ├── csv_handler.py
-│   ├── s3_uploader.py
-│   └── utils.py
+│   └── s3_uploader.py
 ├── forex/
+│   └── (generated CSV files)
+├── gold/
+│   └── (generated CSV files)
+├── silver/
 │   └── (generated CSV files)
 ├── .env
 ├── requirements.txt
@@ -70,7 +74,7 @@ Follow these steps to install and set up the project locally:
       ```
     - Create and activate the virtual environment:
       ```bash
-      cd Scraping/forex
+      cd Scraping
       python -m venv venv (Or python3 -m venv venv)
       source venv/bin/activate   # Linux/Mac
       venv\Scripts\activate      # Windows
@@ -78,7 +82,7 @@ Follow these steps to install and set up the project locally:
 
 3. **Install required dependencies**:
     ```bash
-    cd Scraping/forex
+    cd Scraping
     pip install -r requirements.txt
     ```
 
@@ -108,13 +112,12 @@ Once the setup and development is complete, you can run the scraper as follows:
 
 1. **Run the script**:
     ```bash
-    cd scrape
     python main.py
     ```
 
 2. **Expected behavior**:
-    - The scraper will download forex data from the provided website.
-    - It will save each month’s data in a separate CSV file under the `forex/` directory.
+    - The scraper will download forex data and gold silver prices from the respective websites.
+    - It will save each month’s data in a separate CSV file under the `forex/` and `gold_silver` directories.
     - Each CSV file will be uploaded to the specified S3 bucket after its data is fully written.
 
 ## Configuration
