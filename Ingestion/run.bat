@@ -3,16 +3,16 @@ REM Set environment variables for Snowflake connection
 set SNOWFLAKE_USER=sujankhyaju
 set SNOWFLAKE_PASSWORD=Snowfl@ke1234
 set SNOWFLAKE_ACCOUNT=ABURMXV-BQ11501
-set SNOWFLAKE_WAREHOUSE=COMPUTE01_WH
-set SNOWFLAKE_DATABASE=DEMO_DB
+set SNOWFLAKE_WAREHOUSE=COMPUTE_WH
+set SNOWFLAKE_DATABASE=DATAINSIGHTSDEMO_DB
 set SNOWFLAKE_SCHEMA=public
 set LOOKUP_FILE=formatted_dates.csv
 
 
 REM Set environment variables for aws
-set S3_BUCKET_NAME=workshop20241001
-set AWS_ACCESS= AKIA6GBMFPXGE3I2DN4Z
-set AWS_SECRET= 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
+set S3_BUCKET_NAME=data-to-insights-worshop-rabin
+set AWS_ACCESS=
+set AWS_SECRET=
 set LOCAL_DATA_FOLDER=data
 
 REM Execute the Python script with arguments

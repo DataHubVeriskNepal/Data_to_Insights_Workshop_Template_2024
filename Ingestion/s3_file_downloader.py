@@ -93,7 +93,6 @@ def download_initializer(bucket_name,data_folder):
             for s3_folder in s3_folders:
                 local_folder = os.path.join(".",data_folder, s3_folder)
                 download_files_from_s3(bucket_name, s3_folder, local_folder)
-        print("Files downloaded successfully.")
         return True
 
     except NoCredentialsError:
