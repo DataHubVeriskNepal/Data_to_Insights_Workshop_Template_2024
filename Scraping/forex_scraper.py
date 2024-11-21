@@ -1,8 +1,8 @@
 import requests
 import re
 from bs4 import BeautifulSoup
-from csv_handler import CSVHandler
-from s3_uploader import S3Uploader
+from utils.csv_handler import CSVHandler
+from utils.s3_uploader import S3Uploader
 
 class ForexScraper:
     def __init__(self):
@@ -90,40 +90,35 @@ class ForexScraper:
             self.csv_handler.close(self.s3_uploader)
             self.csv_handler = None  # Reset the handler after uploading
 
-    # def fetch_rates_page(self, full_url, date):
-    #     try:
-            ##
+    def fetch_rates_page(self, full_url, date):
+        try:
             # STEP 5: (Similar to step 1)
-            #   1. Fetch rates page by a sending a get request
-            #   2. Make a call to extract_data method for data extraction
-            #
-            # """CODE BLOCK STARTS"""
+            #    1. Fetch rates page by a sending a get request
+            #    2. Make a call to extract_data method for data extraction
 
+            """CODE BLOCK STARTS"""
+            pass
+            """CODE BLOCK ENDS"""
+        except requests.exceptions.RequestException as e:
+            print(f'Error fetching the View Rates page at {full_url}: {e}')
 
-			# """CODE BLOCK ENDS"""
-
-        # except requests.exceptions.RequestException as e:
-        #     print(f'Error fetching the View Rates page at {full_url}: {e}')
-
-    # def extract_data(self, html_content, date):
-    #     try:
-            ##
+    def extract_data(self, html_content, date):
+        try:
             # STEP 6:
-            #   1. Locate and find the table tag
-            #   2. Extract data from the table and write to a csv file using the csv handler
-            #
+            #  1. Locate and find the table tag
+            #  2. Extract data from the table and write to a csv file using the csv handler
+            
             # Side Note: 
 			# 	Snippet for data extraction from each table row: 
 			# 		row_data = [col.text.strip() for i, col in enumerate(columns) if i != 1]
-			#				OR
-            #		row_data = []
-			#		for i, col in enumerate(columns):
-			#		 	if i != 1:
-			#		 		row_data.append(col.text.strip())
-            #
-			# """CODE BLOCK STARTS"""
+			# 				OR
+            # 		row_data = []
+			# 		for i, col in enumerate(columns):
+			# 		 	if i != 1:
+			# 		 		row_data.append(col.text.strip())
+            """CODE BLOCK STARTS"""
 
-
-			# """CODE BLOCK ENDS"""
-        # except Exception as e:
-        #     print(f'Error extracting data: {e}')
+            pass
+            """CODE BLOCK ENDS"""
+        except Exception as e:
+            print(f'Error extracting data: {e}')

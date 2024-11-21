@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from scraper import ForexScraper
+from forex_scraper import ForexScraper
 
 def main():
     # Load environment variables
