@@ -19,8 +19,7 @@ class ForexScraper:
         try:
             ##
             # STEP 2:
-            #   Send a get request to the landing page
-            #   Fetch the base URL
+            #   1. Send a get request to the landing page (base URL)
             #
             """CODE BLOCK STARTS"""
 
