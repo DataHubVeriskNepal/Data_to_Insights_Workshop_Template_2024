@@ -7,7 +7,14 @@ from botocore.exceptions import NoCredentialsError, ClientError
 # Suppress only the single warning from urllib3 needed.
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-session = boto3.Session(profile_name='default')
+# session = boto3.Session(profile_name='default')
+
+aws_access_key = os.getenv('AWS_ACCESS')
+aws_secret_access_key = os.getenv('AWS_SECRET')
+session = boto3.Session(
+    aws_access_key_id=aws_access_key,
+    aws_secret_access_key=aws_secret_access_key
+)
 
 s3 = session.client('s3',verify=False)
 
