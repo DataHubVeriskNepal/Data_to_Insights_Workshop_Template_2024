@@ -109,7 +109,13 @@ class Snowflake:
                             df[col] = df[col].apply(lambda x: lookup_dict.get(x, x))
                         
                         # Handle null values
-                        df.fillna('NULL', inplace=True)
+                        float_cols = df.select_dtypes(include=['float64']).columns
+                        non_float_cols = df.columns.difference(float_cols)
+                        # Fill NaN values in float columns with np.nan or a specific numeric value
+                        df[float_cols] = df[float_cols].fillna(-1)
+                        # Fill NaN values in non-float columns with 'NULL'
+                        df[non_float_cols] = df[non_float_cols].fillna('NULL')
+                        # df.fillna('NULL', inplace=True)
                         columns = df.columns
 
                         # Load data into the table in batches
