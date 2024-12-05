@@ -95,6 +95,18 @@ class GoldSilverScraper:
 
     def fetch_rates_page(self, full_url, date):
         try:
+            # STEP 5: (Similar to step 1)
+            #    1. Fetch rates page by a sending a get request
+            #    2. Make a call to extract_data method for data extraction
+
+            """CODE BLOCK STARTS"""
+            pass
+            """CODE BLOCK ENDS"""
+        except requests.exceptions.RequestException as e:
+            print(f'Error fetching the View Rates page at {full_url}: {e}')
+
+    def extract_data(self, html_content, date):
+        try:
             # STEP 6:
             #  1. Locate and find the price cards
             #  2. Initialize a data row with placeholders (date + headers) and set the date in the first column
