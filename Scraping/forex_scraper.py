@@ -11,7 +11,10 @@ class ForexScraper:
         # 	Initialize necessary instance variables
         #
         """CODE BLOCK STARTS"""
-
+        self.base_url = ''
+        self.current_month = None
+        self.s3_uploader = S3Uploader()
+        self.csv_handler = None
 
         """CODE BLOCK ENDS"""
 
@@ -31,8 +34,6 @@ class ForexScraper:
             ##
             # STEP 3:
             #   Make a call to parse_links method and go forward to define it
-            #
-            #   NOTE: Ensure to call close_and_upload_csv_handler
             # 
             """CODE BLOCK STARTS"""
 
