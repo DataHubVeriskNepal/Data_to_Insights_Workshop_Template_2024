@@ -33,9 +33,7 @@ Scraping/
 │   └── s3_uploader.py
 ├── forex/
 │   └── (generated CSV files)
-├── gold/
-│   └── (generated CSV files)
-├── silver/
+├── gold_silver/
 │   └── (generated CSV files)
 ├── .env
 ├── requirements.txt
